@@ -1,0 +1,12 @@
+*.pyc
+*.pyo
+*.db
+db.sqlite3
+.DS_Store
+.coverage
+local_settings.py
+.idea
+data
+static/media/avatars
+static/mobile/.idea
+node_modules/
