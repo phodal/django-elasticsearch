@@ -7,17 +7,14 @@
 
 {% block main %}
 <div class="container">
-    <form type="get" action=".">
-        <input type="text" name="q">
-        <button type="submit">Search</button>
-    </form>
-
-    {% for note in notes %}
-    <h1>{{ note.title }}</h1>
-
-    <p>
-        {{ note.body }}
-    </p>
-    {% endfor %}
+    <div class="span12">
+        {% errors_for form %}
+        <form method="post">
+            <fieldset>{% fields_for form %}</fieldset>
+            <div class="actions">
+                <input class="btn btn-warning btn-large" type="submit" value="创建">
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

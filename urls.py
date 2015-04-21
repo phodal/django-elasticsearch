@@ -3,10 +3,11 @@ from __future__ import unicode_literals
 from django.conf.urls import patterns, include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
-
 from mezzanine.core.views import direct_to_template
 from tastypie.api import Api
+
 from nx.api import NoteResource
+from nx.views import NoteCreate
 
 apiv1 = Api(api_name='v1')
 apiv1.register(NoteResource())
@@ -18,7 +19,8 @@ urlpatterns = i18n_patterns("",
 )
 
 urlpatterns += patterns('nx.views',
-    url("^notes/$", "notes", name="note"),
+    url("^view/$", "notes", name="note"),
+    url("^create/$",NoteCreate.as_view(success_url="/view/"), name="create"),
 )
 
 urlpatterns += patterns('',
