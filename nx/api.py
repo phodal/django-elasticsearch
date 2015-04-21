@@ -13,7 +13,6 @@ class NoteResource(ModelResource):
         queryset = Note.objects.all()
         resource_name = 'notes'
 
-    # Custom search endpoint
     def override_urls(self):
         return [
             url(r"^(?P<resource_name>%s)/search/?$" % (self._meta.resource_name), self.wrap_view('get_search'),
@@ -21,23 +20,20 @@ class NoteResource(ModelResource):
         ]
 
     def get_search(self, request, **kwargs):
-        '''
-        Custom endpoint for search
-        '''
-
         self.method_check(request, allowed=['get'])
         self.is_authenticated(request)
         self.throttle_check(request)
 
         query = request.GET.get('q', None)
         if not query:
-            raise BadRequest('Please supply the search parameter (e.g. "/api/v0/notes/search/?q=css")')
+            raise BadRequest('Please supply the search parameter (e.g. "/api/v1/notes/search/?q=css")')
 
-        results = SearchQuerySet().models(Note).filter(user=request.user).auto_query(query)
+        # results = SearchQuerySet().models(Note).filter(user=request.user).auto_query(query)
+        results = SearchQuerySet().models(Note).auto_query(query)
         if not results:
             results = EmptySearchQuerySet()
 
-        paginator = Paginator(request.GET, results, resource_uri='/api/v0/notes/search/')
+        paginator = Paginator(request.GET, results, resource_uri='/api/v1/notes/search/')
 
         bundles = []
         for result in paginator.page()['objects']:
