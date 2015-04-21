@@ -1,4 +1,1 @@
-elasticsearch
-django-haystack
-grappelli
-django-tastypie
+Mezzanine==3.1.10
