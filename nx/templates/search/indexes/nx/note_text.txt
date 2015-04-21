@@ -1,2 +1,3 @@
 {{ object.title }}
 {{ object.body }}
+{{ object.get_location }}
