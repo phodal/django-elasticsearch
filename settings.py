@@ -114,7 +114,7 @@ USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "zh-cn"
 
 # Supported languages
 LANGUAGES = (
@@ -247,9 +247,9 @@ INSTALLED_APPS = (
     "mezzanine.blog",
     "mezzanine.forms",
     "mezzanine.pages",
-    "mezzanine.galleries",
-    "mezzanine.twitter",
-    # "mezzanine.accounts",
+    # "mezzanine.galleries",
+    # "mezzanine.twitter",
+    "mezzanine.accounts",
     # "mezzanine.mobile",
 )
 
