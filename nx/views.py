@@ -1,8 +1,8 @@
-from django.contrib.messages import error, info
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render_to_response
 from django.views.generic import CreateView
 
 from .forms import NotesSearchForm, NotesForm
+
 from nx.models import Note
 
 

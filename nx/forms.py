@@ -17,6 +17,18 @@ class NotesForm(BaseNoteForm):
     def clean(self):
         title = self.cleaned_data.get("title", None)
         body = self.cleaned_data.get("body", None)
+        phone_number = self.cleaned_data.get("phone_number", None)
+        province = self.cleaned_data.get("province", None)
+        city = self.cleaned_data.get("city", None)
+        address = self.cleaned_data.get("address", None)
         if not title and not body:
             raise ValidationError("Either a title or body is required")
+        if not phone_number:
+            raise ValidationError("Either phone_number is required")
+        if not province:
+            raise ValidationError("Either province is required")
+        if not city:
+            raise ValidationError("Either city is required")
+        if not address:
+            raise ValidationError("Either address is required")
         return self.cleaned_data

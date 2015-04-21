@@ -36,3 +36,6 @@ class Note(models.Model):
     def get_location(self):
         location = self.province + self.city + self.address
         return Point(Geocoder.geocode(location)[0].coordinates[0], Geocoder.geocode(location)[0].coordinates[1])
+
+    def get_location_info(self):
+        return self.province + self.city + self.address
