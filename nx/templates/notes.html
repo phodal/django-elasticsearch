@@ -1,13 +1,12 @@
+{% load pages_tags mezzanine_tags i18n future staticfiles %}
+<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+<link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
+<link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+
 {% load i18n %}
 
-{% block meta_title %}{% trans "Home" %}{% endblock %}
-{% block title %}{% trans "Home" %}{% endblock %}
-
-{% block breadcrumb_menu %}
-<li class="active">{% trans "Home" %}</li>
-{% endblock %}
-
 {% block main %}
+<div class="container">
 <form type="get" action=".">
     <input type="text" name="q">
     <button type="submit">Search</button>
@@ -17,8 +16,7 @@
 <h1>{{ note.title }}</h1>
 <p>
     {{ note.body }}
-    {{ note.latitude }}
-    {{ note.longitude }}
 </p>
 {% endfor %}
+</div>
 {% endblock %}
