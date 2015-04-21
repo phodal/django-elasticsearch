@@ -9,6 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from pygeocoder import Geocoder
 
+
 class Note(models.Model):
     username = models.CharField("用户名", max_length=30, unique=True)
         # help_text=_('Required. 30 characters or fewer. Letters, numbers and '
@@ -29,13 +30,21 @@ class Note(models.Model):
     city = models.CharField("市", max_length=10)
     address = models.CharField("地址", max_length=10)
     timestamp = models.DateTimeField(auto_now=True)
+    latitude = models.FloatField(blank=True)
+    longitude = models.FloatField(blank=True)
 
     def __unicode__(self):
         return self.title
 
+    def save(self, *args, **kwargs):
+        #Geocode the address
+        results = Geocoder.geocode(self.province + self.city + self.address)
+        self.latitude = results[0].coordinates[0]
+        self.longitude = results[0].coordinates[1]
+        super(Note, self).save(*args, **kwargs)
+
     def get_location(self):
-        location = self.province + self.city + self.address
-        return Point(Geocoder.geocode(location)[0].coordinates[0], Geocoder.geocode(location)[0].coordinates[1])
+        return Point(self.longitude, self.latitude)
 
     def get_location_info(self):
         return self.province + self.city + self.address
