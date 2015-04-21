@@ -1,3 +1,4 @@
 elasticsearch
 django-haystack
 grappelli
+django-tastypie
