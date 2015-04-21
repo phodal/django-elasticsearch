@@ -1,0 +1,22 @@
+{% load i18n %}
+
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
+
+{% block breadcrumb_menu %}
+<li class="active">{% trans "Home" %}</li>
+{% endblock %}
+
+{% block main %}
+<form type="get" action=".">
+    <input type="text" name="q">
+    <button type="submit">Search</button>
+</form>
+
+{% for note in notes %}
+<h1>{{ note.title }}</h1>
+<p>
+    {{ note.body }}
+</p>
+{% endfor %}
+{% endblock %}
