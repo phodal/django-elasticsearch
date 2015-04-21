@@ -1,0 +1,11 @@
+{
+	"query": {
+		"match_all": {}
+	},
+	"sort": [{
+		"_geo_distance": {
+			"location": "38.963, -95.239",
+			"unit": "km"
+		}
+	}]
+}
