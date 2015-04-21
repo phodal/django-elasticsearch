@@ -1,7 +1,5 @@
 from haystack import indexes
 
-from django.utils import timezone
-
 from .models import Note
 
 

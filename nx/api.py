@@ -24,6 +24,7 @@ class NoteResource(ModelResource):
         self.is_authenticated(request)
         self.throttle_check(request)
 
+        print request.GET
         query = request.GET.get('q', None)
         if not query:
             raise BadRequest('Please supply the search parameter (e.g. "/api/v1/notes/search/?q=css")')
