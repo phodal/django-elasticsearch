@@ -21,4 +21,4 @@ class Note(models.Model):
         # Remember, longitude FIRST!
         return Point(self.longitude, self.latitude)
 
-admin.site.register(Note)
+# admin.site.register(Note)
