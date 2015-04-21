@@ -9,7 +9,8 @@ class NotesSearchForm(SearchForm):
     def no_query_found(self):
         return self.searchqueryset.all()
 
-BaseNoteForm = modelform_factory(Note, fields=["title", "body", "latitude", "longitude"])
+BaseNoteForm = modelform_factory(Note, fields=["username", "phone_number", "title",
+                                               "body", "price", "number", "latitude", "longitude"])
 
 class NotesForm(BaseNoteForm):
 
