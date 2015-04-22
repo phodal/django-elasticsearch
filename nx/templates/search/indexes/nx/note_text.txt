@@ -1,3 +1,7 @@
 {{ object.title }}
 {{ object.body }}
+{{ object.number }}
+{{ object.price }}
+{{ object.phone_number }}
 {{ object.get_location }}
+{{ object.get_location_info }}
