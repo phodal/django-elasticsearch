@@ -12,3 +12,9 @@
 ##Client
 
 Visit: [https://github.com/phodal/ionic-elasticsearch](https://github.com/phodal/ionic-elasticsearch)
+
+##Document
+
+[Mac OS Django Geo 环境搭建](http://www.phodal.com/blog/django-elasticsearch-geo-solution/)
+
+[AWS CentOS Django Geo 环境搭建](http://www.phodal.com/blog/install-geo-django-in-centos/)
