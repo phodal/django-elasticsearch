@@ -4,13 +4,7 @@ from django.conf.urls import patterns, include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from mezzanine.core.views import direct_to_template
-from tastypie.api import Api
-
-from nx.api import NoteResource
 from nx.views import NoteCreate
-
-apiv1 = Api(api_name='v1')
-apiv1.register(NoteResource())
 
 admin.autodiscover()
 
@@ -26,7 +20,7 @@ urlpatterns += patterns('nx.views',
 urlpatterns += patterns('',
     url("^$", direct_to_template, {"template": "index.html"}, name="home"),
     (r'^search/', include('haystack.urls')),
-    url(r"^api/", include(apiv1.urls)),
+    ("^api/", include("api.urls")),
     ("^", include("mezzanine.urls")),
 )
 
