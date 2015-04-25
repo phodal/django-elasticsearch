@@ -2,6 +2,7 @@
 
 from __future__ import absolute_import, division, print_function, unicode_literals
 import re
+from django.contrib import admin
 
 from django.contrib.gis.geos import Point
 from django.core import validators
@@ -48,3 +49,5 @@ class Note(models.Model):
 
     def get_location_info(self):
         return self.province + self.city + self.address
+
+admin.site.register(Note)
