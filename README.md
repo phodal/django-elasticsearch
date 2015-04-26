@@ -2,6 +2,10 @@
 
 > A Demo of ElasticSearch, Django, Ionic
 
+##Struct
+
+![Struct](./struct.png)
+
 ##Tech
 
 - ElasticSearch
