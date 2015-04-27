@@ -1,6 +1,0 @@
-$ brew install postgresql
-$ brew install postgis
-$ brew install gdal
-$ brew install libgeoip
-
-curl -XGET 'http://127.0.0.1:9200/haystack/_search?pretty' -d @query.json

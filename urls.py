@@ -1,24 +1,13 @@
-from __future__ import unicode_literals
+from django.conf.urls import url, include
+from rest_framework import routers
 
-from django.conf.urls import patterns, include, url
-from django.conf.urls.i18n import i18n_patterns
-from django.contrib import admin
-from mezzanine.core.views import direct_to_template
+from api.views import AllListView
 
-admin.autodiscover()
+router = routers.DefaultRouter()
+router.register(r'all', AllListView, 'all')
 
-urlpatterns = i18n_patterns("",
-    ("^admin/", include(admin.site.urls)),
-)
 
-urlpatterns += patterns('',
-    url("^$", direct_to_template, {"template": "index.html"}, name="home"),
-    (r'^search/', include('haystack.urls')),
-    ("^api/", include("api.urls")),
-    ("^", include("mezzanine.urls")),
-)
-
-# Adds ``STATIC_URL`` to the context of error pages, so that error
-# pages can use JS, CSS and images.
-handler404 = "mezzanine.core.views.page_not_found"
-handler500 = "mezzanine.core.views.server_error"
+urlpatterns = [
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+]
