@@ -8,7 +8,7 @@ class NoteDetailSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Note
-        fields = ("username", "phone_number", "title", "body", "price", "number", "province", "city", "address")
+        fields = ("username", "email", "phone_number", "title", "body", "price", "number", "province", "city", "address")
 
 class AllListView(viewsets.ModelViewSet):
     serializer_class = NoteDetailSerializer
