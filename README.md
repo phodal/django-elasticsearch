@@ -13,6 +13,12 @@
 - Ionic
 - OpenLayers 3
 
+##Screenshot
+
+![Django Ionic ScreenShot](./screenshots/1.jpg)
+![Django Ionic ScreenShot](./screenshots/2.jpg)
+
+
 ##Client
 
 Visit: [https://github.com/phodal/ionic-elasticsearch](https://github.com/phodal/ionic-elasticsearch)
