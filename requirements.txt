@@ -4,4 +4,4 @@ django-tastypie
 djangorestframework
 pygeocoder
 elasticsearch
-grappelli
+django-grappelli
